@@ -1,13 +1,14 @@
 import { Axios } from 'axios';
 import React,{Component} from 'react';
 import { Accordion,Card, Button } from 'react-bootstrap';
+import Example from './Example';
 
 class Statedata extends Component{
   
     render(){
         return(
             <div >
-               List of states in India 
+               <Example/>
             </div>
         )
     }
