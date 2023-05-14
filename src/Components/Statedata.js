@@ -43,7 +43,7 @@ class Statedata extends Component{
                       
                         return(
                             <Accordion.Item eventKey={ky}>
-        <Accordion.Header>{itm}-<span  Total Cases-{total_confirmed} Active {total_active} Recovered {total_recovery} Death {total_deaths}</Accordion.Header>
+        <Accordion.Header>{itm}-<span className='btn-dark p-1 mr-2'></span> Total Cases-{total_confirmed} Active {total_active} Recovered {total_recovery} Death {total_deaths}</Accordion.Header>
         <Accordion.Body>
          <table className='table table-bordered table-striped'>
             <thead>
