@@ -1,7 +1,19 @@
 import React,{Component} from 'react';
 import {Card} from 'react-bootstrap';
 import Statedata from './Statedata';
+import axios from 'axios';
 class India extends Component{
+    constructor(){
+        super();
+        this.state={
+            data:{}
+        }
+    }
+    componentDidMount(){
+        axios.get("https://corona.lmao.ninja/v2/countries/india").then(Response=>{
+            this.setState({data:Response.data});
+        });
+    }
     render(){
         return(
             <div className='row'>
@@ -16,9 +28,9 @@ class India extends Component{
       
                 <Card.Body className='text-center'>
                     <Card.Title>TOTAL CASES</Card.Title>
-                    <h3>195656</h3>
+                    <h3>{this.state.data.cases}</h3>
                     <Card.Text>
-                    [Today : 25 ]
+                    
                     </Card.Text>
                     
                 </Card.Body>
@@ -32,9 +44,9 @@ class India extends Component{
       
                 <Card.Body className='text-center'>
                     <Card.Title>ACTIVE CASES</Card.Title>
-                    <h3>195656</h3>
+                    <h3>{this.state.data.active}</h3>
                     <Card.Text>
-                    [Today : 25 ]
+                    
                     </Card.Text>
                     
                 </Card.Body>
@@ -48,9 +60,9 @@ class India extends Component{
       
                 <Card.Body className='text-center'>
                     <Card.Title>RECOVERED</Card.Title>
-                    <h3>195656</h3>
+                    <h3>{this.state.data.recovered}</h3>
                     <Card.Text>
-                    [Today : 25 ]
+                   
                     </Card.Text>
                     
                 </Card.Body>
@@ -64,9 +76,9 @@ class India extends Component{
       
                 <Card.Body className='text-center'>
                     <Card.Title>DEATHS</Card.Title>
-                    <h3>195656</h3>
+                    <h3>{this.state.data.deaths}</h3>
                     <Card.Text>
-                    [Today : 25 ]
+                    
                     </Card.Text>
                     
                 </Card.Body>

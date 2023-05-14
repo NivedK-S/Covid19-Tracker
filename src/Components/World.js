@@ -31,7 +31,7 @@ class World extends Component{
                                 this.state.data.map((itm,ky)=>{
                                    return(
                                     <tr>
-                                        <td>{itm.country}</td>
+                                        <td>{itm.country}<img style={{width:'64px',marginLeft:'10px'}} src={itm.countryInfo.flag}/></td>
                                         <td>{itm.cases}</td>
                                         <td>{itm.recovered}</td>
                                         <td>{itm.deaths}</td>
