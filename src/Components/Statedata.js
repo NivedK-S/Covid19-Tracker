@@ -25,10 +25,25 @@ class Statedata extends Component{
                     keys.map((itm,ky)=>{
                       let districts= this.state.stateData[itm].districtData;
                       let district_keys = Object.keys(districts);
+                      let total_active =0;
+                      let total_confirmed=0;
+                      let total_deaths=0;
+                      let total_recovery=0;
+                      let district_list=[];
+                      for(let x in districts){
+                        total_active+= districts[x].active;
+                        total_confirmed+=districts[x].confirmed;
+                        total_deaths+=districts[x].deceased;
+                        total_recovery+=districts[x].recovered;
+                        let ob = districts[x];
+                        ob["district_name"]=x;
+                        district_list.push(ob);
+                      }
+                      
                       
                         return(
-                            <Accordion.Item eventKey="0">
-        <Accordion.Header>{itm}</Accordion.Header>
+                            <Accordion.Item eventKey={ky}>
+        <Accordion.Header>{itm}-<span  Total Cases-{total_confirmed} Active {total_active} Recovered {total_recovery} Death {total_deaths}</Accordion.Header>
         <Accordion.Body>
          <table className='table table-bordered table-striped'>
             <thead>
@@ -41,7 +56,19 @@ class Statedata extends Component{
                 </tr>
             </thead>
             <tbody>
-
+            {
+                district_list.map((itm,ky)=>{
+                    return(
+                        <tr>
+                           <td>{itm.district_name}</td> 
+                           <td>{itm.confirmed}</td> 
+                           <td>{itm.active}</td> 
+                           <td>{itm.recovered}</td>
+                           <td>{itm.deceased}</td>  
+                        </tr>
+                    )
+                })
+            }
             </tbody>
          </table>
         </Accordion.Body>
