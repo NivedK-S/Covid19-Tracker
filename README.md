@@ -1,3 +1,5 @@
+Website is available in : https://nivedk-s.github.io/Covid19-Tracker/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
